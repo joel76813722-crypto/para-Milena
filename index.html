@@ -1,619 +1,587 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <title>Galaxia de Flores Amarillas Alex Dev</title>
-
-    <!--
-
-Contáctame:
-
-   * Crea tus diseños sin código
- https://comparte-amor.vercel.app/
-
-    * Invitame un café
- https://buymeacoffee.com/alexx.dev
-
-    * Portafolio Web
- https://alexxdev.vercel.app
-
-    * Sigueme en tiktok
- https://www.tiktok.com/@alexx.dev?is_from_webapp=1&sender_device=pc
- 
-    * Canal de WhatsApp
- https://whatsapp.com/channel/0029VazQEXq90x2vIdNkrH1p
-
- 
-   * WhatsApp: +52 5587450945
-https://wa.me/525568916053
-
-
--->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Milena ❤️ - De Joel</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Tipografías Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      overflow: hidden;
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0d0407;
+      color: #fecdd3;
+      overflow-x: hidden;
+    }
+    .font-serif {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    /* Estilos Glassmorphism */
+    .glass-panel {
+      background: rgba(28, 9, 18, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(251, 113, 133, 0.2);
+    }
+    .glass-card {
+      background: rgba(42, 13, 26, 0.55);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(251, 113, 133, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     }
 
-    *{
-        cursor: url('flor.png'), auto !important;
-
+    /* Animación de Corazones Flotantes */
+    .animate-float {
+      animation: float 10s linear infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      20% { opacity: 0.6; }
+      80% { opacity: 0.6; }
+      100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
     }
 
-    #container {
-      width: 100vw;
-      height: 100vh;
-      background: radial-gradient(circle at center, #111100 0%, #000000 100%);
-      position: fixed;
-      top: 0;
-      left: 0;
-    }
-
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1;
-    }
-
-    #modalCarta {
+    /* Ocultar barra de desplazamiento manteniendo funcionalidad */
+    .no-scrollbar::-webkit-scrollbar {
       display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.85);
-      z-index: 100;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      opacity: 0;
-      transition: opacity 0.3s ease;
     }
-
-    #modalCarta.show {
-      display: flex;
-      opacity: 1;
-    }
-
-    #cartaImg {
-      max-width: 90vw;
-      max-height: 80vh;
-      border-radius: 15px;
-      box-shadow: 0 0 30px rgba(255, 204, 0, 0.6);
-      object-fit: contain;
-      animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    #cerrarModal {
-      margin-top: 20px;
-      padding: 10px 30px;
-      font-size: 18px;
-      font-weight: bold;
-      color: #333;
-      background-color: #ffcc00;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
-      transition: transform 0.2s ease, background-color 0.2s ease;
-    }
-
-    #cerrarModal:active {
-      transform: scale(0.95);
-    }
-
-    @keyframes popIn {
-      0% { transform: scale(0.5); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
   </style>
 </head>
+<body class="relative min-h-screen pb-24">
 
-<body>
-  <div id="container"></div>
-
-  <div id="modalCarta">
-    <img id="cartaImg" src="" alt="Carta">
-    <button id="cerrarModal">Cerrar</button>
+  <!-- ==================== FONDO ANIMADO ==================== -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute bottom-0 text-rose-500/20 animate-float" style="left: 10%; font-size: 20px; animation-delay: 0s;">❤️</div>
+    <div class="absolute bottom-0 text-rose-500/20 animate-float" style="left: 25%; font-size: 14px; animation-delay: 3s;">✨</div>
+    <div class="absolute bottom-0 text-rose-500/20 animate-float" style="left: 45%; font-size: 24px; animation-delay: 1s;">❤️</div>
+    <div class="absolute bottom-0 text-rose-500/20 animate-float" style="left: 70%; font-size: 18px; animation-delay: 5s;">🌹</div>
+    <div class="absolute bottom-0 text-rose-500/20 animate-float" style="left: 88%; font-size: 22px; animation-delay: 2s;">❤️</div>
   </div>
 
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://unpkg.com/three@0.162.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.162.0/examples/jsm/"
-      }
-    }
-  </script>
+  <!-- ==================== MODAL DE BIENVENIDA ==================== -->
+  <div id="welcome-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md transition-opacity duration-500">
+    <div class="max-w-md w-full glass-panel rounded-3xl p-8 text-center border border-rose-500/30 shadow-2xl relative">
+      <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-tr from-rose-600 to-pink-500 flex items-center justify-center shadow-lg shadow-rose-600/40 text-2xl animate-pulse">
+        ❤️
+      </div>
+      <h1 class="text-3xl font-serif font-bold text-white mb-2 tracking-wide">
+        Hola, Milena <span class="text-rose-400">❤️</span>
+      </h1>
+      <p class="text-rose-200/90 text-sm mb-6 leading-relaxed">
+        Esta pequeña parte del mundo fue creada especialmente para ti.
+      </p>
+      <div class="p-4 rounded-2xl bg-rose-950/40 border border-rose-800/30 mb-8">
+        <p class="text-xs italic text-rose-300/90">
+          “De Joel, el chico que quiere acompañarte, cuidarte y estar a tu lado siempre.”
+        </p>
+      </div>
+      <button onclick="closeWelcome()" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-rose-600 via-pink-600 to-rose-700 text-white font-medium shadow-lg shadow-rose-600/30 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2">
+        <span>Entrar a nuestro mundo ❤️</span>
+      </button>
+    </div>
+  </div>
 
-  <script type="module">
-    import * as THREE from 'three';
-    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-
-    const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x000000, 0.0015);
-
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(0, 4, 18); 
-
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
-    document.getElementById('container').appendChild(renderer.domElement);
-
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.autoRotate = false; 
-    controls.enabled = false; 
-
-    const textureLoader = new THREE.TextureLoader();
-
-
-    const flowerExplosionGroup = new THREE.Group();
-    scene.add(flowerExplosionGroup);
-    const explFlowers = [];
-    const fUrls = ["flor1.png", "flor2.png", "flor3.png", "flor4.png", "flor5.png", "flor6.png", "flor7.png"];
+  <!-- ==================== BARRA SUPERIOR CON REPRODUCTOR ==================== -->
+  <header class="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-stone-950/80 border-b border-rose-900/30 px-4 sm:px-8 py-3 flex items-center justify-between">
+    <div class="font-serif text-base sm:text-lg font-bold text-rose-300 flex items-center gap-2">
+      <span>Para Milena</span>
+      <span class="text-[9px] sm:text-[10px] bg-rose-950/80 text-rose-400 border border-rose-800/40 px-2 py-0.5 rounded-full font-sans tracking-widest uppercase">❤️ De Joel</span>
+    </div>
     
-    fUrls.forEach(url => {
-      for(let k=0; k<15; k++) { 
-        const tex = textureLoader.load(url);
-        tex.colorSpace = THREE.SRGBColorSpace; 
-        const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex }));
+    <!-- Controles de Audio -->
+    <div class="glass-panel px-3 py-1.5 rounded-full flex items-center gap-3 text-xs border border-rose-500/20">
+      <audio id="audio-player" loop>
+        <!-- Reemplazar con la ruta de tu canción -->
+        <source src="musica/cancion.mp3" type="audio/mpeg">
+      </audio>
+      <button id="music-btn" onclick="toggleMusic()" class="flex items-center gap-2 text-rose-200 hover:text-white transition-colors">
+        <span id="music-icon">🎵</span>
+        <span id="music-text" class="text-[11px] font-medium hidden sm:inline">Reproducir música</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==================== CONTENIDO PRINCIPAL ==================== -->
+  <main class="max-w-4xl mx-auto px-4 pt-24 space-y-12 relative z-10">
+
+    <!-- SECCIÓN 1: INICIO Y ESTADOS DE ÁNIMO -->
+    <section id="sec-inicio" class="space-y-8">
+      <div class="text-center pt-2">
+        <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-rose-950/60 border border-rose-800/40 text-xs text-rose-300 mb-3">
+          <span>✨ Un espacio hecho con todo el corazón</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-serif font-bold text-white mb-2">Para Milena <span class="text-rose-500">❤️</span></h1>
+        <p class="text-xs sm:text-sm text-rose-200/80 max-w-lg mx-auto">
+          De Joel, el chico que quiere estar a tu lado siempre.
+        </p>
+      </div>
+
+      <!-- Selector de Estados de Ánimo -->
+      <div>
+        <h2 class="text-lg sm:text-xl font-serif text-center font-bold text-rose-100 mb-1">¿Cómo te sientes hoy, Milena?</h2>
+        <p class="text-center text-rose-300/70 text-xs mb-6">Haz clic en tu estado actual para ver un mensaje especial</p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+          <button onclick="selectMood('Feliz', '😊', 'Tu sonrisa merece quedarse mucho tiempo más. Iluminas todo a tu alrededor.', 'Celebración instantánea: Recuerda algo bonito que ocurrió hoy.')" class="p-3.5 rounded-2xl glass-card text-left hover:border-rose-400 active:scale-95 transition-all">
+            <span class="text-2xl">😊</span>
+            <span class="text-xs font-semibold text-rose-100 block mt-2">Feliz</span>
+          </button>
+
+          <button onclick="selectMood('Triste', '😔', 'Está bien no estar bien todos los días. No tienes que cargar con todo sola, estoy aquí.', 'Abrazo distante: Cierra los ojos 10 segundos y respira profundo.')" class="p-3.5 rounded-2xl glass-card text-left hover:border-rose-400 active:scale-95 transition-all">
+            <span class="text-2xl">😔</span>
+            <span class="text-xs font-semibold text-rose-100 block mt-2">Triste</span>
+          </button>
+
+          <button onclick="selectMood('Enamorada', '🥰', 'El amor es encontrar en alguien ese refugio donde todo cobra sentido.', 'Lee la carta especial que Joel preparó para ti.')" class="p-3.5 rounded-2xl glass-card text-left hover:border-rose-400 active:scale-95 transition-all">
+            <span class="text-2xl">🥰</span>
+            <span class="text-xs font-semibold text-rose-100 block mt-2">Enamorada</span>
+          </button>
+
+          <button onclick="selectMood('Cansada', '😴', 'Descansa, Milena. No tienes que ser fuerte todo el tiempo. El mundo puede esperar.', 'Pausa reparadora: Pon música suave y descansa la vista.')" class="p-3.5 rounded-2xl glass-card text-left hover:border-rose-400 active:scale-95 transition-all">
+            <span class="text-2xl">😴</span>
+            <span class="text-xs font-semibold text-rose-100 block mt-2">Cansada</span>
+          </button>
+
+          <button onclick="selectMood('Cariño', '🥺', 'Si pudiera darte un abrazo en este instante, no te soltaría en un largo rato.', 'Recuerda que Joel te quiere muchísimo.')" class="p-3.5 rounded-2xl glass-card text-left hover:border-rose-400 active:scale-95 transition-all col-span-2 sm:col-span-1">
+            <span class="text-2xl">🥺</span>
+            <span class="text-xs font-semibold text-rose-100 block mt-2">Necesito Cariño</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: GALERÍA DE RECUERDOS Y CARTA DESTACADA -->
+    <section id="sec-parati" class="space-y-8">
+      <!-- Carrusel de Fotografías -->
+      <div>
+        <div class="text-center mb-4">
+          <h2 class="text-xl font-serif font-bold text-rose-100">Nuestras Fotografías ❤️</h2>
+          <p class="text-xs text-rose-300/70">Momentos especiales guardados con amor</p>
+        </div>
+
+        <div class="relative rounded-3xl overflow-hidden glass-panel border border-rose-500/20 max-w-xl mx-auto shadow-2xl">
+          <div id="carousel-slide" class="h-64 sm:h-80 bg-rose-950/40 flex flex-col items-center justify-center p-6 text-center transition-all duration-300">
+            <!-- Imagen 1 por defecto -->
+            <img id="carousel-img" src="fotos/foto1.jpg" alt="Recuerdo" class="w-full h-full object-cover rounded-2xl hidden" onerror="this.classList.add('hidden'); document.getElementById('carousel-fallback').classList.remove('hidden');" />
+            
+            <div id="carousel-fallback" class="flex flex-col items-center justify-center h-full">
+              <span class="text-5xl mb-3">📸</span>
+              <p id="carousel-caption" class="font-serif text-sm sm:text-base text-rose-100 italic max-w-md">
+                “No importa dónde estemos, siempre quiero encontrar una forma de estar a tu lado.”
+              </p>
+              <span id="carousel-file" class="text-[10px] text-rose-400/60 mt-3 font-mono">(fotos/foto1.jpg)</span>
+            </div>
+          </div>
+
+          <!-- Controles Carrusel -->
+          <button onclick="prevPhoto()" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/50 text-white flex items-center justify-center backdrop-blur-sm border border-rose-500/30 hover:bg-rose-900/60 transition-colors">❮</button>
+          <button onclick="nextPhoto()" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/50 text-white flex items-center justify-center backdrop-blur-sm border border-rose-500/30 hover:bg-rose-900/60 transition-colors">❯</button>
+        </div>
+      </div>
+
+      <!-- Mensaje Personal de Joel -->
+      <div class="glass-panel rounded-3xl p-6 border border-rose-500/30 shadow-2xl">
+        <div class="flex flex-col sm:flex-row items-center gap-6">
+          <div class="w-28 h-28 rounded-2xl bg-rose-950/80 border-2 border-rose-500/40 overflow-hidden flex flex-col items-center justify-center p-2 text-center flex-shrink-0 relative">
+            <img src="fotos/joel.jpg" alt="Joel" class="w-full h-full object-cover rounded-xl hidden" onerror="this.classList.add('hidden'); document.getElementById('joel-fallback').classList.remove('hidden');" />
+            <div id="joel-fallback" class="flex flex-col items-center">
+              <span class="text-3xl mb-1">👨‍💻❤️</span>
+              <span class="text-[10px] font-serif text-rose-200">Joel</span>
+            </div>
+          </div>
+          <div class="space-y-2 text-center sm:text-left">
+            <span class="text-xs font-semibold uppercase tracking-wider text-rose-400">Un mensaje de Joel</span>
+            <p class="text-base font-serif text-rose-100 font-semibold italic">
+              “No quiero estar solamente en tus días felices; también quiero estar cuando necesites que alguien se quede.”
+            </p>
+            <p class="text-xs text-rose-200/80 leading-relaxed">
+              Construí esta aplicación para recordarte cada día lo valiosa, única y especial que eres para mí.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: MINIJUEGO DE TRIVIA -->
+    <section id="sec-juegos" class="space-y-6">
+      <div class="text-center">
+        <h2 class="text-xl font-serif font-bold text-rose-100">Preguntas sobre Nosotros 🎮</h2>
+        <p class="text-xs text-rose-300/70">¿Qué tanto recuerdas de nuestros detalles?</p>
+      </div>
+
+      <div class="glass-panel rounded-3xl p-6 border border-rose-500/30 max-w-xl mx-auto shadow-2xl">
+        <div id="quiz-container">
+          <div class="flex items-center justify-between mb-4 border-b border-rose-900/40 pb-3">
+            <span id="quiz-step" class="text-xs text-rose-400 font-semibold">Pregunta 1 de 3</span>
+            <span id="quiz-score" class="text-xs bg-rose-950 text-rose-300 px-2.5 py-1 rounded-full border border-rose-800/40">Puntos: 0</span>
+          </div>
+
+          <h3 id="quiz-question" class="text-base sm:text-lg font-serif font-semibold text-white mb-6">
+            ¿Cargando pregunta...?
+          </h3>
+
+          <div id="quiz-options" class="space-y-3">
+            <!-- Las opciones se generan dinámicamente -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: CARTAS ESPECIALES -->
+    <section id="sec-cartas" class="space-y-6">
+      <div class="text-center">
+        <h2 class="text-xl font-serif font-bold text-rose-100">Cartas para Abrir 💌</h2>
+        <p class="text-xs text-rose-300/70">Elige una carta según lo que necesites leer en este momento</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <!-- Carta 1 -->
+        <div onclick="openLetter('Para cuando me extrañes', 'Milena bella, si estás leyendo esto y me extrañas, quiero que sepas que yo también estoy pensando en ti. Aunque no esté físicamente a tu lado en este segundo, mi cariño y mis ganas de cuidarte siempre te acompañan. Pronto nos veremos y te daré un abrazo muy fuerte.')" class="p-5 rounded-2xl glass-card border border-rose-500/20 hover:border-rose-400 cursor-pointer transition-all active:scale-95 space-y-3">
+          <span class="text-3xl">💌</span>
+          <h3 class="text-sm font-serif font-bold text-rose-100">Para cuando me extrañes</h3>
+          <p class="text-xs text-rose-300/70">Abre esta carta cuando quieras sentirme cerca.</p>
+        </div>
+
+        <!-- Carta 2 -->
+        <div onclick="openLetter('Para cuando tengas un mal día', 'Respira profundo, Milena. Un mal día no significa una mala vida. Eres una mujer fuerte, inteligente y hermosa. No dejes que la prisa o los problemas de hoy apaguen tu luz. Aquí estoy yo para escucharte y apoyarte siempre.')" class="p-5 rounded-2xl glass-card border border-rose-500/20 hover:border-rose-400 cursor-pointer transition-all active:scale-95 space-y-3">
+          <span class="text-3xl">🌿</span>
+          <h3 class="text-sm font-serif font-bold text-rose-100">Para cuando tengas un mal día</h3>
+          <p class="text-xs text-rose-300/70">Un recordatorio dulce para calmar tu mente.</p>
+        </div>
+
+        <!-- Carta 3 -->
+        <div onclick="openLetter('Para cuando lo dudes todo', 'Si en algún momento dudas de ti o del futuro, recuerda por qué eres tan especial. Tienes un corazón hermoso y una forma de ser que me encanta. Nunca dudes de lo mucho que vales ni de todo lo que significas para mí.')" class="p-5 rounded-2xl glass-card border border-rose-500/20 hover:border-rose-400 cursor-pointer transition-all active:scale-95 space-y-3">
+          <span class="text-3xl">✨</span>
+          <h3 class="text-sm font-serif font-bold text-rose-100">Para cuando lo dudes todo</h3>
+          <p class="text-xs text-rose-300/70">Lee esto para recordar lo valiosa que eres.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 5: BLOC DE NOTAS / PENSAMIENTOS -->
+    <section id="sec-notas" class="space-y-6">
+      <div class="text-center">
+        <h2 class="text-xl font-serif font-bold text-rose-100">Notas y Pensamientos 📖</h2>
+        <p class="text-xs text-rose-300/70">Escribe aquí lo que quieras guardarle a Joel (se guarda solo en tu celular)</p>
+      </div>
+
+      <div class="glass-panel rounded-3xl p-6 border border-rose-500/30 max-w-xl mx-auto space-y-4 shadow-2xl">
+        <textarea id="note-input" rows="4" placeholder="Escribe un pensamiento, una nota o algo bonito que quieras recordar..." class="w-full bg-rose-950/30 text-rose-100 text-xs sm:text-sm p-4 rounded-2xl border border-rose-800/40 focus:outline-none focus:border-rose-500 placeholder-rose-400/40 resize-none"></textarea>
         
-        sprite.position.set(
-          (Math.random() - 0.5) * 150,
-          (Math.random() - 0.5) * 150,
-          - (Math.random() * 400) 
-        );
-        
-        const s = Math.random() * 2.5 + 1.5;
-        sprite.scale.set(s, s, 1);
-        
-        flowerExplosionGroup.add(sprite);
-        explFlowers.push(sprite);
-      }
-    });
+        <div class="flex justify-between items-center">
+          <span id="note-status" class="text-[11px] text-rose-400 italic"></span>
+          <button onclick="saveNote()" class="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-medium text-xs shadow-lg transition-all active:scale-95">
+            Guardar Nota
+          </button>
+        </div>
 
-    const galaxyGroup = new THREE.Group();
-    scene.add(galaxyGroup);
-    galaxyGroup.visible = false; 
-    galaxyGroup.scale.set(0, 0, 0); 
+        <div class="border-t border-rose-900/40 pt-4 mt-2">
+          <h4 class="text-xs font-semibold text-rose-300 uppercase tracking-wider mb-3">Tus notas guardadas:</h4>
+          <div id="notes-list" class="space-y-2 max-h-48 overflow-y-auto no-scrollbar">
+            <!-- Las notas guardadas aparecen aquí -->
+          </div>
+        </div>
+      </div>
+    </section>
 
-    function createGlowMaterial(color, size = 128) {
-      const canvas = document.createElement('canvas');
-      canvas.width = canvas.height = size;
-      const context = canvas.getContext('2d');
-      const gradient = context.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
-      gradient.addColorStop(0, color);
-      gradient.addColorStop(1, 'rgba(0,0,0,0)');
-      context.fillStyle = gradient;
-      context.fillRect(0, 0, size, size);
-      return new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(canvas), transparent: true, blending: THREE.AdditiveBlending }));
-    }
+  </main>
 
-    const centralGlow = createGlowMaterial('rgba(255, 230, 100, 0.8)', 256);
-    centralGlow.scale.set(8, 8, 1);
-    galaxyGroup.add(centralGlow); 
+  <!-- ==================== BARRA DE NAVEGACIÓN INFERIOR (MÓVIL) ==================== -->
+  <nav class="fixed bottom-0 left-0 right-0 z-40 glass-panel border-t border-rose-900/40 py-2.5 px-2">
+    <div class="max-w-md mx-auto grid grid-cols-5 text-center text-[10px] font-medium">
+      <button onclick="scrollToSec('sec-inicio')" class="text-rose-400 flex flex-col items-center gap-1 active:scale-90 transition-transform">
+        <span class="text-lg">🏠</span>
+        <span>Inicio</span>
+      </button>
+      <button onclick="scrollToSec('sec-parati')" class="text-rose-300/70 hover:text-rose-300 flex flex-col items-center gap-1 active:scale-90 transition-transform">
+        <span class="text-lg">❤️</span>
+        <span>Para ti</span>
+      </button>
+      <button onclick="scrollToSec('sec-juegos')" class="text-rose-300/70 hover:text-rose-300 flex flex-col items-center gap-1 active:scale-90 transition-transform">
+        <span class="text-lg">🎮</span>
+        <span>Juegos</span>
+      </button>
+      <button onclick="scrollToSec('sec-cartas')" class="text-rose-300/70 hover:text-rose-300 flex flex-col items-center gap-1 active:scale-90 transition-transform">
+        <span class="text-lg">💌</span>
+        <span>Cartas</span>
+      </button>
+      <button onclick="scrollToSec('sec-notas')" class="text-rose-300/70 hover:text-rose-300 flex flex-col items-center gap-1 active:scale-90 transition-transform">
+        <span class="text-lg">📖</span>
+        <span>Notas</span>
+      </button>
+    </div>
+  </nav>
 
-    for (let i = 0; i < 15; i++) {
-      const hue = 40 + Math.random() * 25;
-      const nebula = createGlowMaterial(`hsla(${hue}, 100%, 50%, 0.3)`, 256);
-      nebula.scale.set(10 + Math.random() * 20, 10 + Math.random() * 20, 1);
-      nebula.position.set((Math.random() - 0.5) * 40, (Math.random() - 0.5) * 40, (Math.random() - 0.5) * 40);
-      galaxyGroup.add(nebula); 
-    }
+  <!-- ==================== MODAL DE ESTADO DE ÁNIMO ==================== -->
+  <div id="mood-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="max-w-md w-full glass-panel rounded-3xl p-6 sm:p-8 border border-rose-500/30 shadow-2xl text-center relative">
+      <button onclick="closeMoodModal()" class="absolute top-4 right-4 text-rose-400 text-xl font-bold p-1 hover:text-white">✕</button>
+      <div id="mood-emoji" class="text-5xl mb-2">😊</div>
+      <h3 class="text-xl font-serif font-bold text-white mt-2">
+        Te sientes <span id="mood-title" class="text-rose-300">Feliz</span>
+      </h3>
+      <div class="p-4 rounded-2xl bg-gradient-to-r from-rose-950/60 to-purple-950/60 border border-rose-800/30 my-5">
+        <p id="mood-quote" class="text-rose-100 font-serif italic text-sm leading-relaxed">
+          “Tu sonrisa merece quedarse mucho tiempo más.”
+        </p>
+      </div>
+      <p id="mood-activity" class="text-xs text-rose-200/80 mb-6 bg-rose-950/30 p-3 rounded-xl border border-rose-900/30">
+        Escribe tres momentos bonitos que te pasaron hoy.
+      </p>
+      <button onclick="closeMoodModal()" class="w-full py-3 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-medium text-xs shadow-lg transition-all">
+        Gracias, Joel ❤
+      </button>
+    </div>
+  </div>
 
-    const galaxyParams = {
-      count: 100000, arms: 4, radius: 10, spin: 2, randomness: 0.3, randomnessPower: 3,
-      insideColor: new THREE.Color(0xffcc00), 
-      outsideColor: new THREE.Color(0xffff66) 
-    };
+  <!-- ==================== MODAL DE LECTURA DE CARTAS ==================== -->
+  <div id="letter-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="max-w-md w-full glass-panel rounded-3xl p-6 sm:p-8 border border-rose-500/30 shadow-2xl text-center relative">
+      <button onclick="closeLetterModal()" class="absolute top-4 right-4 text-rose-400 text-xl font-bold p-1 hover:text-white">✕</button>
+      <span class="text-4xl mb-2 block">💌</span>
+      <h3 id="letter-title" class="text-xl font-serif font-bold text-white mb-4">
+        Título de la Carta
+      </h3>
+      <div class="p-5 rounded-2xl bg-rose-950/40 border border-rose-800/30 text-left mb-6">
+        <p id="letter-body" class="text-xs sm:text-sm text-rose-100 leading-relaxed font-serif italic">
+          Contenido de la carta...
+        </p>
+      </div>
+      <button onclick="closeLetterModal()" class="w-full py-3 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-medium text-xs shadow-lg transition-all">
+        Cerrar carta ❤️
+      </button>
+    </div>
+  </div>
 
-    const positions = new Float32Array(galaxyParams.count * 3);
-    const colors = new Float32Array(galaxyParams.count * 3);
-
-    for (let i = 0; i < galaxyParams.count; i++) {
-      const i3 = i * 3;
-      const radius = Math.pow(Math.random(), galaxyParams.randomnessPower) * galaxyParams.radius;
-      const branchAngle = ((i % galaxyParams.arms) / galaxyParams.arms) * Math.PI * 2;
-      const totalAngle = branchAngle + (radius * galaxyParams.spin);
+  <!-- ==================== LÓGICA EN JAVASCRIPT ==================== -->
+  <script>
+    // 1. BIENVENIDA
+    function closeWelcome() {
+      const modal = document.getElementById('welcome-modal');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      setTimeout(() => modal.classList.add('hidden'), 500);
       
-      positions[i3]     = Math.cos(totalAngle) * radius + (Math.random() - 0.5) * galaxyParams.randomness * radius;
-      positions[i3 + 1] = (Math.random() - 0.5) * galaxyParams.randomness * radius * 0.5;
-      positions[i3 + 2] = Math.sin(totalAngle) * radius + (Math.random() - 0.5) * galaxyParams.randomness * radius;
-      
-      const mixedColor = galaxyParams.insideColor.clone();
-      mixedColor.lerp(galaxyParams.outsideColor, radius / galaxyParams.radius);
-      mixedColor.multiplyScalar(0.7 + 0.3 * Math.random());
-      colors[i3] = mixedColor.r; colors[i3 + 1] = mixedColor.g; colors[i3 + 2] = mixedColor.b;
+      // Intenta iniciar la música al entrar si el navegador lo permite
+      playMusic();
     }
 
-    const galaxyGeom = new THREE.BufferGeometry();
-    galaxyGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    galaxyGeom.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-    const galaxyMat = new THREE.PointsMaterial({ size: 0.02, vertexColors: true, depthWrite: false, blending: THREE.AdditiveBlending });
-    
-    const galaxy = new THREE.Points(galaxyGeom, galaxyMat);
-    galaxyGroup.add(galaxy);
+    // 2. REPRODUCTOR DE MÚSICA
+    const audio = document.getElementById('audio-player');
+    const musicBtn = document.getElementById('music-btn');
+    const musicIcon = document.getElementById('music-icon');
+    const musicText = document.getElementById('music-text');
+    let isPlaying = false;
 
- 
-    const starGeom = new THREE.BufferGeometry();
-    const starCount = 8000;
-    const starPositions = new Float32Array(starCount * 3);
-    for (let i = 0; i < starCount; i++) {
-      starPositions[i * 3] = (Math.random() - 0.5) * 400;
-      starPositions[i * 3 + 1] = (Math.random() - 0.5) * 400;
-      starPositions[i * 3 + 2] = (Math.random() - 0.5) * 400;
-    }
-    starGeom.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
-    const starMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.5, transparent: true });
-    const stars = new THREE.Points(starGeom, starMat);
-    scene.add(stars);
-
-  
-    const cometGroup = new THREE.Group();
-    scene.add(cometGroup);
-    const comets = [];
-
-    function createCometMesh() {
-      const group = new THREE.Group();
-      const head = new THREE.Mesh(
-        new THREE.SphereGeometry(0.15, 8, 8),
-        new THREE.MeshBasicMaterial({ color: 0xffffee })
-      );
-      group.add(head);
-      
-      const tailGeo = new THREE.ConeGeometry(0.2, 8, 8);
-      tailGeo.translate(0, -4, 0);
-      const tail = new THREE.Mesh(
-        tailGeo,
-        new THREE.MeshBasicMaterial({ 
-          color: 0xffff88, 
-          transparent: true, opacity: 0.4, 
-          blending: THREE.AdditiveBlending, depthWrite: false 
-        })
-      );
-      group.add(tail);
-      return group;
-    }
-
-    function resetComet(comet) {
-      comet.position.set(
-        (Math.random() - 0.5) * 300,
-        150 + Math.random() * 100, 
-        (Math.random() - 0.5) * 300
-      );
-      comet.userData.velocity = new THREE.Vector3(
-        (Math.random() - 0.5) * 3,
-        - (Math.random() * 2 + 2),
-        (Math.random() - 0.5) * 3
-      ).normalize().multiplyScalar(Math.random() * 3 + 2); 
-      comet.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), comet.userData.velocity.clone().normalize());
-    }
-
-    for(let i = 0; i < 12; i++) { 
-      const c = createCometMesh();
-      resetComet(c);
-      cometGroup.add(c);
-      comets.push(c);
-    }
-
-
-    const heartCount = 15000;
-    const hPos = new Float32Array(heartCount * 3);
-    const hCol = new Float32Array(heartCount * 3);
-    for(let i=0; i < heartCount; i++) {
-      const t = Math.PI * 2 * Math.random();
-      let x = 16 * Math.pow(Math.sin(t), 3);
-      let y = 13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t);
-      let z = (Math.random() - 0.5) * 3;
-      
-      const scale = 0.15, noise = 0.4;
-      hPos[i*3] = x * scale + (Math.random() - 0.5) * noise;
-      hPos[i*3+1] = y * scale + (Math.random() - 0.5) * noise;
-      hPos[i*3+2] = z * scale + (Math.random() - 0.5) * noise;
-
-      const mixedColor = galaxyParams.insideColor.clone();
-      mixedColor.lerp(galaxyParams.outsideColor, Math.random());
-      hCol[i*3] = mixedColor.r; hCol[i*3+1] = mixedColor.g; hCol[i*3+2] = mixedColor.b;
-    }
-    const heartGeom = new THREE.BufferGeometry();
-    heartGeom.setAttribute('position', new THREE.BufferAttribute(hPos, 3));
-    heartGeom.setAttribute('color', new THREE.BufferAttribute(hCol, 3));
-    const heartParticles = new THREE.Points(heartGeom, galaxyMat);
-    heartParticles.position.set(0, 4, 0);
-    heartParticles.scale.set(0, 0, 0); 
-    scene.add(heartParticles);
-
- 
-    function createElegantText(message) {
-      const canvas = document.createElement('canvas');
-      canvas.width = 800; canvas.height = 160;
-      const ctx = canvas.getContext('2d');
-      ctx.font = "italic bold 65px 'Georgia', serif"; 
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.shadowColor = "#ffcc00";
-      ctx.shadowBlur = 20;
-      ctx.fillStyle = "#ffffff";
-      ctx.fillText(message, 400, 80);
-      return new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(canvas), transparent: true }));
-    }
-
-    const mainText = createElegantText("Te amo 💛🌻");
-    mainText.position.set(0, 4, 0);
-    mainText.scale.set(0, 0, 0); 
-    scene.add(mainText);
-
-    const orbitGroup = new THREE.Group();
-    scene.add(orbitGroup);
-
-    function createSmallTextSprite(message) {
-      const canvas = document.createElement('canvas');
-      canvas.width = 700; canvas.height = 140;
-      const context = canvas.getContext('2d');
-      context.font = "bold 45px Arial";
-      context.textAlign = "center";
-      context.textBaseline = "middle";
-      context.fillStyle = "#ffffff";
-      context.shadowColor = "#ffaa00";
-      context.shadowBlur = 10;
-      context.fillText(message, canvas.width / 2, canvas.height / 2);
-      return new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(canvas), transparent: true }));
-    }
-
-    const romanticTexts = [
-      "Amor de mi vida 💛", "Eres preciosa 🌻", "Me encantas 🌼", "Mi Amor 💛", 
-      "Eres mi todo 🌻", "Te Amo ☀️", "Siempre juntos 💛", "Eres mi sol 🌻", 
-      "Eres única 🌼", "Te adoro 💛", "My Love 🌻", "Amor de mi vida 💛", 
-      "Eres preciosa 🌻", "Me encantas 🌼", "Mi Amor 💛", "Eres mi todo 🌻", 
-      "Te Amo ☀️", "Siempre juntos 💛", "Eres mi sol 🌻", "Eres única 🌼", 
-      "Te adoro 💛", "My Love 🌻"
-    ];
-    
-    const imageUrls = [
-      "4.png", 
-      "5.png",
-      "6.png",
-      "7.png",
-      "8.png",
-    ];
-
-    const totalOrbiters = romanticTexts.length + imageUrls.length;
-
-    for (let i = 0; i < totalOrbiters; i++) {
-      const radius = 6.0 + (i % 3) * 0.8; 
-      const angle = (i / totalOrbiters) * Math.PI * 2;
-      const heights = [-2.5, -0.8, 0.8, 2.5];
-      const yPos = heights[i % 4] + (Math.random() * 0.4 - 0.2);
-
-      let orbiter;
-      
-      if (i % 2 === 0) {
-        const textIndex = Math.floor(i / 2) % romanticTexts.length;
-        orbiter = createSmallTextSprite(romanticTexts[textIndex]);
-        orbiter.scale.set(4.5, 0.9, 1);
-      } else {
-        const imgIndex = Math.floor(i / 2) % imageUrls.length;
-        const tex = textureLoader.load(imageUrls[imgIndex]);
-        tex.colorSpace = THREE.SRGBColorSpace; 
-        
-        orbiter = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex }));
-        orbiter.scale.set(1.5, 1.5, 1);
-        
-        orbiter.userData = {
-          esClickeable: true,
-          cartaUrl: `carta${imgIndex + 1}.png`
-        };
-      }
-
-      orbiter.position.set(Math.cos(angle)*radius, yPos, Math.sin(angle)*radius);
-      orbitGroup.add(orbiter);
-    }
-    orbitGroup.scale.set(0, 0, 0);
-
-    const raycaster = new THREE.Raycaster();
-    const mouse = new THREE.Vector2();
-    const modalCarta = document.getElementById('modalCarta');
-    const cartaImg = document.getElementById('cartaImg');
-    const cerrarModal = document.getElementById('cerrarModal');
-    let isModalOpen = false;
-
-    window.addEventListener('pointerdown', (event) => {
-      if(isModalOpen) return; 
-
-      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-      raycaster.setFromCamera(mouse, camera);
-
-      const intersects = raycaster.intersectObjects(orbitGroup.children);
-
-      if (intersects.length > 0) {
-        const objetoTocado = intersects[0].object;
-        
-        if (objetoTocado.userData && objetoTocado.userData.esClickeable) {
-          abrirCarta(objetoTocado.userData.cartaUrl);
-        }
-      }
-    });
-
-    function abrirCarta(url) {
-      cartaImg.src = url;
-      modalCarta.classList.add('show');
-      isModalOpen = true;
-      controls.enabled = false;
-    }
-
-    cerrarModal.addEventListener('click', () => {
-      modalCarta.classList.remove('show');
-      isModalOpen = false;
-      setTimeout(() => { cartaImg.src = ""; }, 300); 
-      if (stage === 3) controls.enabled = true;
-    });
-
-
-   
-    const clock = new THREE.Clock();
-    let stage = 0; 
-    let timeProgress = 0;
-
-    function easeOutCubic(x) {
-      return 1 - Math.pow(1 - x, 3);
-    }
-
-    function animate() {
-      requestAnimationFrame(animate);
-      const delta = Math.min(clock.getDelta(), 0.1); 
-      const time = clock.getElapsedTime();
-
-      comets.forEach(comet => {
-        comet.position.add(comet.userData.velocity);
-        if (comet.position.y < -200 || Math.abs(comet.position.x) > 300 || Math.abs(comet.position.z) > 300) {
-          resetComet(comet);
-        }
+    function playMusic() {
+      audio.play().then(() => {
+        isPlaying = true;
+        musicIcon.innerText = '⏸️';
+        musicText.innerText = 'Pausar música';
+      }).catch(err => {
+        console.log("El navegador bloqueó la reproducción automática:", err);
       });
-
-      if (stage === 0) {
-        timeProgress += delta * 0.3; 
-        
-        const pos = stars.geometry.attributes.position.array;
-        for(let i = 2; i < pos.length; i += 3) {
-          pos[i] += 25; 
-          if(pos[i] > 100) {
-            pos[i] = -200; 
-            pos[i-1] = (Math.random() - 0.5) * 400;
-            pos[i-2] = (Math.random() - 0.5) * 400;
-          }
-        }
-        stars.geometry.attributes.position.needsUpdate = true;
-
-        explFlowers.forEach(sprite => {
-          sprite.position.z += 25; 
-          if (sprite.position.z > 50) { 
-            sprite.position.z = -200 - Math.random() * 100;
-            sprite.position.x = (Math.random() - 0.5) * 150;
-            sprite.position.y = (Math.random() - 0.5) * 150;
-          }
-        });
-
-        if (timeProgress >= 1) {
-          stage = 1;
-          timeProgress = 0;
-          galaxyGroup.visible = true; 
-        }
-      } 
-      else if (stage === 1) {
-        timeProgress += delta * 0.5; 
-        const scale = easeOutCubic(Math.min(timeProgress, 1));
-        
-        galaxyGroup.scale.set(scale, scale, scale);
-
-        const speed = 25 * (1 - scale);
-        
-        const pos = stars.geometry.attributes.position.array;
-        for(let i = 2; i < pos.length; i += 3) {
-          pos[i] += speed > 0.1 ? speed : 0;
-          if(pos[i] > 100) pos[i] = -200;
-        }
-        stars.geometry.attributes.position.needsUpdate = true;
-
-        explFlowers.forEach(sprite => {
-          sprite.position.z += speed > 0.1 ? speed : 0;
-          if (sprite.position.z > 50) {
-            sprite.position.z = -200 - Math.random() * 100;
-            sprite.position.x = (Math.random() - 0.5) * 150;
-            sprite.position.y = (Math.random() - 0.5) * 150;
-          }
-        });
-
-        if (timeProgress >= 1) {
-          stage = 2;
-          timeProgress = 0;
-        }
-      } 
-      else if (stage === 2) {
-        timeProgress += delta * 0.8; 
-        const scale = easeOutCubic(Math.min(timeProgress, 1));
-        
-        heartParticles.scale.set(scale, scale, scale);
-        orbitGroup.scale.set(scale, scale, scale);
-        mainText.scale.set(5 * scale, 1 * scale, 1); 
-
-        explFlowers.forEach(sprite => {
-          sprite.position.applyAxisAngle(new THREE.Vector3(0,1,0), 0.001);
-        });
-
-        if (timeProgress >= 1) {
-          stage = 3;
-          if(!isModalOpen) controls.enabled = true; 
-        }
-      }
-
-      if (!isModalOpen) {
-        if (stage >= 1) galaxyGroup.rotation.y += 0.001;
-        if (stage >= 2) orbitGroup.rotation.y += 0.001;
-
-        if (stage === 3) {
-           stars.rotation.y += 0.0002; 
-           
-           const pulse = 1 + Math.sin(time * 2.5) * 0.03;
-           heartParticles.scale.set(pulse, pulse, pulse);
-           heartParticles.position.y = 4 + Math.sin(time) * 0.2;
-           mainText.position.y = 4 + Math.sin(time) * 0.2;
-           
-           explFlowers.forEach(sprite => {
-             sprite.position.applyAxisAngle(new THREE.Vector3(0,1,0), 0.001);
-           });
-        }
-      }
-
-      controls.update();
-      renderer.render(scene, camera);
     }
 
-    window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
+    function toggleMusic() {
+      if (isPlaying) {
+        audio.pause();
+        isPlaying = false;
+        musicIcon.innerText = '🎵';
+        musicText.innerText = 'Reproducir música';
+      } else {
+        playMusic();
+      }
+    }
 
-    animate();
+    // 3. ESTADOS DE ÁNIMO
+    function selectMood(title, emoji, quote, activity) {
+      document.getElementById('mood-title').innerText = title;
+      document.getElementById('mood-emoji').innerText = emoji;
+      document.getElementById('mood-quote').innerText = "“" + quote + "”";
+      document.getElementById('mood-activity').innerText = activity;
+      document.getElementById('mood-modal').classList.remove('hidden');
+    }
+
+    function closeMoodModal() {
+      document.getElementById('mood-modal').classList.add('hidden');
+    }
+
+    // 4. CARRUSEL DE FOTOS
+    const photos = [
+      { src: 'fotos/foto1.jpg', caption: '“No importa dónde estemos, siempre quiero encontrar una forma de estar a tu lado.”' },
+      { src: 'fotos/foto2.jpg', caption: '“Cada sonrisa tuya guarda un motivo por el cual hacer las cosas bien.”' },
+      { src: 'fotos/foto3.jpg', caption: '“Contigo los momentos simples se vuelven memorables.”' }
+    ];
+    let currentPhotoIndex = 0;
+
+    function updatePhoto() {
+      const photo = photos[currentPhotoIndex];
+      const img = document.getElementById('carousel-img');
+      const fallback = document.getElementById('carousel-fallback');
+      
+      document.getElementById('carousel-caption').innerText = photo.caption;
+      document.getElementById('carousel-file').innerText = `(${photo.src})`;
+      
+      img.src = photo.src;
+      img.classList.remove('hidden');
+      fallback.classList.add('hidden');
+    }
+
+    function nextPhoto() {
+      currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+      updatePhoto();
+    }
+
+    function prevPhoto() {
+      currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+      updatePhoto();
+    }
+
+    // 5. TRIVIA / JUEGO
+    const quizData = [
+      {
+        question: "¿Qué es lo que más le gusta a Joel de Milena?",
+        options: ["Su sonrisa y su forma de ser", "Todo sin excepción", "Su mirada dulce"],
+        correct: 1
+      },
+      {
+        question: "¿Cuál es el superpoder de Milena?",
+        options: ["Hacer feliz a Joel en un segundo", "Iluminar cualquier lugar al que entra", "Todas las anteriores"],
+        correct: 2
+      },
+      {
+        question: "¿Cuál es la promesa principal de Joel?",
+        options: ["Estar siempre a su lado y cuidarla", "Invitarla a comer todos los fines de semana", "Hacerle una app cada año"],
+        correct: 0
+      }
+    ];
+
+    let currentQuizIndex = 0;
+    let score = 0;
+
+    function loadQuiz() {
+      if (currentQuizIndex >= quizData.length) {
+        document.getElementById('quiz-container').innerHTML = `
+          <div class="text-center py-6 space-y-4">
+            <span class="text-5xl">🎉</span>
+            <h3 class="text-xl font-serif font-bold text-white">¡Completaste la trivia!</h3>
+            <p class="text-xs text-rose-200">Lograste ${score} de ${quizData.length} puntos. Para Joel, siempre ganas ❤️️</p>
+            <button onclick="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-rose-600 text-white text-xs font-medium">Volver a jugar</button>
+          </div>
+        `;
+        return;
+      }
+
+      const q = quizData[currentQuizIndex];
+      document.getElementById('quiz-step').innerText = `Pregunta ${currentQuizIndex + 1} de ${quizData.length}`;
+      document.getElementById('quiz-score').innerText = `Puntos: ${score}`;
+      document.getElementById('quiz-question').innerText = q.question;
+
+      const optsContainer = document.getElementById('quiz-options');
+      optsContainer.innerHTML = '';
+
+      q.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = "w-full p-3.5 rounded-xl bg-rose-950/40 border border-rose-800/40 text-left text-xs text-rose-100 hover:border-rose-400 hover:bg-rose-900/40 transition-all active:scale-98";
+        btn.innerText = opt;
+        btn.onclick = () => answerQuiz(idx);
+        optsContainer.appendChild(btn);
+      });
+    }
+
+    function answerQuiz(selectedIdx) {
+      if (selectedIdx === quizData[currentQuizIndex].correct) {
+        score++;
+      }
+      currentQuizIndex++;
+      loadQuiz();
+    }
+
+    function resetQuiz() {
+      currentQuizIndex = 0;
+      score = 0;
+      loadQuiz();
+    }
+
+    // 6. CARTAS
+    function openLetter(title, body) {
+      document.getElementById('letter-title').innerText = title;
+      document.getElementById('letter-body').innerText = body;
+      document.getElementById('letter-modal').classList.remove('hidden');
+    }
+
+    function closeLetterModal() {
+      document.getElementById('letter-modal').classList.add('hidden');
+    }
+
+    // 7. BLOC DE NOTAS CON LOCALSTORAGE
+    function saveNote() {
+      const input = document.getElementById('note-input');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const notes = JSON.parse(localStorage.getItem('milena_notes') || '[]');
+      notes.unshift({ text: text, date: new Date().toLocaleDateString('es-ES') });
+      localStorage.setItem('milena_notes', JSON.stringify(notes));
+
+      input.value = '';
+      document.getElementById('note-status').innerText = '¡Nota guardada! ❤️️';
+      setTimeout(() => document.getElementById('note-status').innerText = '', 3000);
+      renderNotes();
+    }
+
+    function renderNotes() {
+      const notes = JSON.parse(localStorage.getItem('milena_notes') || '[]');
+      const container = document.getElementById('notes-list');
+      
+      if (notes.length === 0) {
+        container.innerHTML = '<p class="text-xs text-rose-400/60 italic text-center py-2">No hay notas guardadas aún.</p>';
+        return;
+      }
+
+      container.innerHTML = notes.map((n, i) => `
+        <div class="p-3 rounded-xl bg-rose-950/40 border border-rose-900/30 flex justify-between items-start gap-2">
+          <div>
+            <p class="text-xs text-rose-100 leading-relaxed">${n.text}</p>
+            <span class="text-[9px] text-rose-400/60">${n.date}</span>
+          </div>
+          <button onclick="deleteNote(${i})" class="text-rose-400/60 hover:text-rose-300 text-xs px-1">✕</button>
+        </div>
+      `).join('');
+    }
+
+    function deleteNote(index) {
+      const notes = JSON.parse(localStorage.getItem('milena_notes') || '[]');
+      notes.splice(index, 1);
+      localStorage.setItem('milena_notes', JSON.stringify(notes));
+      renderNotes();
+    }
+
+    // 8. NAVEGACIÓN DESPLAZABLE
+    function scrollToSec(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Inicializar al cargar la página
+    window.addEventListener('DOMContentLoaded', () => {
+      loadQuiz();
+      renderNotes();
+    });
   </script>
 </body>
-
-
-  <!--
-
-Contáctame:
-
-   * Crea tus diseños sin código
- https://comparte-amor.vercel.app/
-
-    * Invitame un café
- https://buymeacoffee.com/alexx.dev
-
-    * Portafolio Web
- https://alexxdev.vercel.app
-
-    * Sigueme en tiktok
- https://www.tiktok.com/@alexx.dev?is_from_webapp=1&sender_device=pc
- 
-    * Canal de WhatsApp
- https://whatsapp.com/channel/0029VazQEXq90x2vIdNkrH1p
-
- 
-   * WhatsApp: +52 5587450945
-https://wa.me/525568916053
-
-
--->
-
 </html>
