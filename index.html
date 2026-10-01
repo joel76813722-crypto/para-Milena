@@ -102,9 +102,8 @@
     
     <!-- Controles de Audio -->
     <div class="glass-panel px-3 py-1.5 rounded-full flex items-center gap-3 text-xs border border-rose-500/20">
-      <audio id="audio-player" loop>
-        <!-- Reemplazar con la ruta de tu canción -->
-        <source src="musica/cancion.mp3" type="audio/mpeg">
+      <audio id="audio-player" loop preload="auto">
+        <source src="cancion.mp3" type="audio/mpeg">
       </audio>
       <button id="music-btn" onclick="toggleMusic()" class="flex items-center gap-2 text-rose-200 hover:text-white transition-colors">
         <span id="music-icon">🎵</span>
@@ -167,39 +166,32 @@
       <!-- Carrusel de Fotografías -->
       <div>
         <div class="text-center mb-4">
-          <h2 class="text-xl font-serif font-bold text-rose-100">Nuestras Fotografías ❤️</h2>
+          <h2 class="text-xl font-serif font-bold text-rose-100">Nuestras Fotografías ❤️️</h2>
           <p class="text-xs text-rose-300/70">Momentos especiales guardados con amor</p>
         </div>
 
         <div class="relative rounded-3xl overflow-hidden glass-panel border border-rose-500/20 max-w-xl mx-auto shadow-2xl">
-          <div id="carousel-slide" class="h-64 sm:h-80 bg-rose-950/40 flex flex-col items-center justify-center p-6 text-center transition-all duration-300">
-            <!-- Imagen 1 por defecto -->
-            <img id="carousel-img" src="fotos/foto1.jpg" alt="Recuerdo" class="w-full h-full object-cover rounded-2xl hidden" onerror="this.classList.add('hidden'); document.getElementById('carousel-fallback').classList.remove('hidden');" />
-            
-            <div id="carousel-fallback" class="flex flex-col items-center justify-center h-full">
-              <span class="text-5xl mb-3">📸</span>
-              <p id="carousel-caption" class="font-serif text-sm sm:text-base text-rose-100 italic max-w-md">
-                “No importa dónde estemos, siempre quiero encontrar una forma de estar a tu lado.”
-              </p>
-              <span id="carousel-file" class="text-[10px] text-rose-400/60 mt-3 font-mono">(fotos/foto1.jpg)</span>
-            </div>
+          <div id="carousel-slide" class="h-64 sm:h-80 bg-rose-950/40 flex flex-col items-center justify-center p-2 text-center transition-all duration-300">
+            <img id="carousel-img" src="foto1.jpg" alt="Recuerdo" class="w-full h-full object-cover rounded-2xl" />
           </div>
 
           <!-- Controles Carrusel -->
-          <button onclick="prevPhoto()" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/50 text-white flex items-center justify-center backdrop-blur-sm border border-rose-500/30 hover:bg-rose-900/60 transition-colors">❮</button>
-          <button onclick="nextPhoto()" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/50 text-white flex items-center justify-center backdrop-blur-sm border border-rose-500/30 hover:bg-rose-900/60 transition-colors">❯</button>
+          <button onclick="prevPhoto()" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center backdrop-blur-sm border border-rose-500/30 hover:bg-rose-900/80 transition-colors z-20">❮</button>
+          <button onclick="nextPhoto()" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center backdrop-blur-sm border border-rose-500/30 hover:bg-rose-900/80 transition-colors z-20">❯</button>
+          
+          <div class="p-3 bg-stone-950/80 border-t border-rose-900/40 text-center">
+            <p id="carousel-caption" class="text-xs font-serif italic text-rose-200">
+              “No importa dónde estemos, siempre quiero encontrar una forma de estar a tu lado.”
+            </p>
+          </div>
         </div>
       </div>
 
       <!-- Mensaje Personal de Joel -->
       <div class="glass-panel rounded-3xl p-6 border border-rose-500/30 shadow-2xl">
         <div class="flex flex-col sm:flex-row items-center gap-6">
-          <div class="w-28 h-28 rounded-2xl bg-rose-950/80 border-2 border-rose-500/40 overflow-hidden flex flex-col items-center justify-center p-2 text-center flex-shrink-0 relative">
-            <img src="fotos/joel.jpg" alt="Joel" class="w-full h-full object-cover rounded-xl hidden" onerror="this.classList.add('hidden'); document.getElementById('joel-fallback').classList.remove('hidden');" />
-            <div id="joel-fallback" class="flex flex-col items-center">
-              <span class="text-3xl mb-1">👨‍💻❤️</span>
-              <span class="text-[10px] font-serif text-rose-200">Joel</span>
-            </div>
+          <div class="w-28 h-28 rounded-2xl bg-rose-950/80 border-2 border-rose-500/40 overflow-hidden flex-shrink-0 shadow-lg">
+            <img src="joel.jpg" alt="Joel" class="w-full h-full object-cover" />
           </div>
           <div class="space-y-2 text-center sm:text-left">
             <span class="text-xs font-semibold uppercase tracking-wider text-rose-400">Un mensaje de Joel</span>
@@ -262,7 +254,7 @@
         </div>
 
         <!-- Carta 3 -->
-        <div onclick="openLetter('Para cuando lo dudes todo', 'Si en algún momento dudas de ti o del futuro, recuerda por qué eres tan especial. Tienes un corazón hermoso y una forma de ser que me encanta. Nunca dudes de lo mucho que vales ni de todo lo que significas para mí.')" class="p-5 rounded-2xl glass-card border border-rose-500/20 hover:border-rose-400 cursor-pointer transition-all active:scale-95 space-y-3">
+        <div onclick="openLetter('Para cuando lo dudes todo', 'Si en algún momento dudas de ti o del futuro, recuerda por qué eres tan especial. Tienes un corazón hermoso y una forma de ser que me encanta. Nunca dudas de lo mucho que vales ni de todo lo que significas para mí.')" class="p-5 rounded-2xl glass-card border border-rose-500/20 hover:border-rose-400 cursor-pointer transition-all active:scale-95 space-y-3">
           <span class="text-3xl">✨</span>
           <h3 class="text-sm font-serif font-bold text-rose-100">Para cuando lo dudes todo</h3>
           <p class="text-xs text-rose-300/70">Lee esto para recordar lo valiosa que eres.</p>
@@ -372,8 +364,6 @@
       const modal = document.getElementById('welcome-modal');
       modal.classList.add('opacity-0', 'pointer-events-none');
       setTimeout(() => modal.classList.add('hidden'), 500);
-      
-      // Intenta iniciar la música al entrar si el navegador lo permite
       playMusic();
     }
 
@@ -390,7 +380,7 @@
         musicIcon.innerText = '⏸️';
         musicText.innerText = 'Pausar música';
       }).catch(err => {
-        console.log("El navegador bloqueó la reproducción automática:", err);
+        console.log("Autoplay bloqueado:", err);
       });
     }
 
@@ -418,25 +408,19 @@
       document.getElementById('mood-modal').classList.add('hidden');
     }
 
-    // 4. CARRUSEL DE FOTOS
+    // 4. CARRUSEL DE FOTOS (Rutas directas sin carpeta fotos/)
     const photos = [
-      { src: 'fotos/foto1.jpg', caption: '“No importa dónde estemos, siempre quiero encontrar una forma de estar a tu lado.”' },
-      { src: 'fotos/foto2.jpg', caption: '“Cada sonrisa tuya guarda un motivo por el cual hacer las cosas bien.”' },
-      { src: 'fotos/foto3.jpg', caption: '“Contigo los momentos simples se vuelven memorables.”' }
+      { src: 'foto1.jpg', caption: '“No importa dónde estemos, siempre quiero encontrar una forma de estar a tu lado.”' },
+      { src: 'foto2.jpg', caption: '“Cada sonrisa tuya guarda un motivo por el cual hacer las cosas bien.”' },
+      { src: 'foto3.jpg', caption: '“Contigo los momentos simples se vuelven memorables.”' }
     ];
     let currentPhotoIndex = 0;
 
     function updatePhoto() {
       const photo = photos[currentPhotoIndex];
       const img = document.getElementById('carousel-img');
-      const fallback = document.getElementById('carousel-fallback');
-      
-      document.getElementById('carousel-caption').innerText = photo.caption;
-      document.getElementById('carousel-file').innerText = `(${photo.src})`;
-      
       img.src = photo.src;
-      img.classList.remove('hidden');
-      fallback.classList.add('hidden');
+      document.getElementById('carousel-caption').innerText = photo.caption;
     }
 
     function nextPhoto() {
@@ -449,7 +433,7 @@
       updatePhoto();
     }
 
-    // 5. TRIVIA / JUEGO
+    // 5. TRIVIA
     const quizData = [
       {
         question: "¿Qué es lo que más le gusta a Joel de Milena?",
@@ -477,7 +461,7 @@
           <div class="text-center py-6 space-y-4">
             <span class="text-5xl">🎉</span>
             <h3 class="text-xl font-serif font-bold text-white">¡Completaste la trivia!</h3>
-            <p class="text-xs text-rose-200">Lograste ${score} de ${quizData.length} puntos. Para Joel, siempre ganas ❤️️</p>
+            <p class="text-xs text-rose-200">Lograste ${score} de ${quizData.length} puntos. Para Joel, siempre ganas ❤</p>
             <button onclick="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-rose-600 text-white text-xs font-medium">Volver a jugar</button>
           </div>
         `;
@@ -537,7 +521,7 @@
       localStorage.setItem('milena_notes', JSON.stringify(notes));
 
       input.value = '';
-      document.getElementById('note-status').innerText = '¡Nota guardada! ❤️️';
+      document.getElementById('note-status').innerText = '¡Nota guardada! ❤';
       setTimeout(() => document.getElementById('note-status').innerText = '', 3000);
       renderNotes();
     }
@@ -569,7 +553,7 @@
       renderNotes();
     }
 
-    // 8. NAVEGACIÓN DESPLAZABLE
+    // 8. NAVEGACIÓN
     function scrollToSec(id) {
       const el = document.getElementById(id);
       if (el) {
@@ -577,7 +561,6 @@
       }
     }
 
-    // Inicializar al cargar la página
     window.addEventListener('DOMContentLoaded', () => {
       loadQuiz();
       renderNotes();
